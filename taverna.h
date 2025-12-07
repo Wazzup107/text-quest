@@ -1,41 +1,51 @@
 #pragma once
-#include<bits/stdc++.h>
+#include "dialogi.h"
 #include "stati.h"
+#include <bits/stdc++.h>
+
 using namespace std;
+
 bool buy_pivo() {
-    if (dengy < 2) {
-        cout << "èäè îòñþäà íèùåáðîä" << endl;
-    }
-    dengy    = dengy - 2;
-    zdorovie = zdorovie + 5;
-    cout << "Âû ïüåòå ÏÈÈÈâî";
+  if (dengy < 2) {
+    cout << "Ð¸Ð´Ð¸ Ð¾Ñ‚ÑÑŽÐ´Ð° Ð½Ð¸Ñ‰ÐµÐ±Ñ€Ð¾Ð´" << endl;
     return false;
+  }
+  dengy = dengy - 2;
+  zdorovie = zdorovie + 5;
+  cout << "Ð’Ñ‹ Ð¿ÑŒÐµÑ‚Ðµ ÐŸÐ˜Ð˜Ð˜Ð²Ð¾, Ð¾ÑÑ‚Ð°Ð»Ð¾ÑÑŒ " << dengy << " Ð´ÐµÐ½ÐµÐ³" << endl;
+  return false;
 }
 
 bool buy_coffee() {
-    // TODO
+  // TODO
 }
 
 bool buy_pechenko() {
-    // TODO
+  // TODO
 }
 
 bool snyatie_komnati() {
-    if (dengy >= 5) {
-        dengy = dengy - 5;
-        mana  = mana + 10;
-        cout << "Âû ñíÿëè êîìíàòó íà íî÷ü è ïðîñïàëè äî óòðà";
-        return false;
-    } else {
-        cout << "Ó âàñ íåò äîñòàòî÷íî äåíåã";
-        return false;
-    }
+  if (dengy >= 5) {
+    dengy = dengy - 5;
+    mana = mana + 10;
+    cout << "Ð’Ñ‹ ÑÐ½ÑÐ»Ð¸ ÐºÐ¾Ð¼Ð½Ð°Ñ‚Ñƒ Ð½Ð° Ð½Ð¾Ñ‡ÑŒ Ð¸ Ð¿Ñ€Ð¾ÑÐ¿Ð°Ð»Ð¸ Ð´Ð¾ ÑƒÑ‚Ñ€Ð°";
+    return false;
+  } else {
+    cout << "Ð£ Ð²Ð°Ñ Ð½ÐµÑ‚ Ð´Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ñ‡Ð½Ð¾ Ð´ÐµÐ½ÐµÐ³";
+    return false;
+  }
 }
 
-makeScene3Back(za_stolom,
-               "Âû ñàäèòåñü çà ñòîë è îòêðûâàåòå ìåíþ."
-               "1.Ïèâî-2 ìîíåòû",
-               buy_pivo, "2.ÊÎÎÔÝ-1 ìîíåòà", buy_coffee, "3.ïå÷åíüêî-10 ìîíåò", buy_pechenko);
+makeScene3Back(za_stolom, "Ð’Ñ‹ ÑÐ°Ð´Ð¸Ñ‚ÐµÑÑŒ Ð·Ð° ÑÑ‚Ð¾Ð» Ð¸ Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°ÐµÑ‚Ðµ Ð¼ÐµÐ½ÑŽ.",
+               "ÐŸÐ¸Ð²Ð¾-2 Ð¼Ð¾Ð½ÐµÑ‚Ñ‹", buy_pivo, 
+               "ÐšÐžÐžÐ¤Ð­-1 Ð¼Ð¾Ð½ÐµÑ‚Ð°", buy_coffee,
+               "Ð¿ÐµÑ‡ÐµÐ½ÑŒÐºÐ¾-10 Ð¼Ð¾Ð½ÐµÑ‚", buy_pechenko);
 
-makeScene3Back(taverna, "Âû çàõîäèòå â òàâåðíó.", "1.Ñåñòü çà ñòîëèê", za_stolom, "2.Ñíÿòü êîìíàòó íà íî÷ü",
-               snyatie_komnati, "3.Ñûãðàòü â ëàâæøùóêôêùæ", game);
+bool game() {
+  // TODO
+}
+
+makeScene3Back(taverna, "Ð’Ñ‹ Ð·Ð°Ñ…Ð¾Ð´Ð¸Ñ‚Ðµ Ð² Ñ‚Ð°Ð²ÐµÑ€Ð½Ñƒ.", 
+    "Ð¡ÐµÑÑ‚ÑŒ Ð·Ð° ÑÑ‚Ð¾Ð»Ð¸Ðº", za_stolom, 
+    "Ð¡Ð½ÑÑ‚ÑŒ ÐºÐ¾Ð¼Ð½Ð°Ñ‚Ñƒ Ð½Ð° Ð½Ð¾Ñ‡ÑŒ", snyatie_komnati, 
+    "Ð¡Ñ‹Ð³Ñ€Ð°Ñ‚ÑŒ Ð² Ð»Ð°Ð²Ð¶ÑˆÑ‰ÑƒÐºÑ„ÐºÑ‰Ð¶", game);
